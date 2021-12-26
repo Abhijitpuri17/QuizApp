@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:fontFamily="@font/ubuntu_bold"
         android:layout_marginTop="16dp"
         android:text="Log In"
         android:textColor="@color/black"
@@ -33,6 +34,7 @@
         android:layout_marginEnd="16dp">
 
         <EditText
+            android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textEmailAddress"
@@ -61,6 +63,7 @@
         android:layout_marginEnd="16dp">
 
         <EditText
+            android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textPassword"
@@ -89,7 +92,7 @@
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold|italic"
-        app:neumorph_shapeType="basin" />
+        app:neumorph_shapeType="flat" />
 
     <LinearLayout
         android:id="@+id/ll_line"
@@ -144,7 +147,7 @@
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold|italic"
-        app:neumorph_shapeType="basin" />
+        app:neumorph_shapeType="flat" />
 
 
     <LinearLayout
@@ -165,16 +168,15 @@
             android:textColor="@color/black"
             android:text="Don't have an account?"/>
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/nbtn_go_to_signup"
+        <TextView
+            android:id="@+id/btn_go_to_signup"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:textColor="@color/black"
             android:padding="8dp"
             android:layout_gravity="center"
-            style="@style/Widget.Neumorph.Button"
-            app:neumorph_shapeType="flat"
-            android:text="SIGN UP"/>
+            android:gravity="center"
+            android:text="@string/sign_up"/>
 
     </LinearLayout>
 

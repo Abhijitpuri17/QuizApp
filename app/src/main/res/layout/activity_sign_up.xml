@@ -22,28 +22,28 @@
 
     <soup.neumorphism.NeumorphCardView
         android:id="@+id/ncv_name"
+        style="@style/Widget.Neumorph.CardView"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_below="@id/mtv_label_login"
         android:layout_centerHorizontal="true"
-        style="@style/Widget.Neumorph.CardView"
-        app:neumorph_shapeType="pressed"
-        android:layout_marginTop="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp">
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:neumorph_shapeType="pressed">
 
         <EditText
+            android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="textPersonName"
-            android:textColorHint="@android:color/tertiary_text_light"
-            android:hint="name"
-            android:textColor="@color/black"
-
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
             android:background="@drawable/no_background"
-            />
+            android:hint="name"
+            android:inputType="textPersonName"
+            android:paddingStart="16dp"
+
+            android:paddingEnd="16dp"
+            android:textColor="@color/black"
+            android:textColorHint="@android:color/tertiary_text_light" />
 
     </soup.neumorphism.NeumorphCardView>
 
@@ -61,6 +61,7 @@
         android:layout_marginEnd="16dp">
 
         <EditText
+            android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textEmailAddress"
@@ -88,6 +89,7 @@
         android:layout_marginEnd="16dp">
 
         <EditText
+            android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textPassword"
@@ -116,7 +118,7 @@
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold|italic"
-        app:neumorph_shapeType="basin" />
+        app:neumorph_shapeType="flat" />
 
     <LinearLayout
         android:id="@+id/ll_line"
@@ -171,7 +173,7 @@
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold|italic"
-        app:neumorph_shapeType="basin" />
+        app:neumorph_shapeType="flat" />
 
 
     <LinearLayout
@@ -192,16 +194,15 @@
             android:textColor="@color/black"
             android:text="Already have an account?"/>
 
-        <soup.neumorphism.NeumorphButton
-            android:id="@+id/nbtn_go_to_login"
+        <TextView
+            android:id="@+id/btn_go_to_login"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:textColor="@color/black"
             android:padding="8dp"
             android:layout_gravity="center"
-            style="@style/Widget.Neumorph.Button"
-            app:neumorph_shapeType="flat"
-            android:text="Log in"/>
+            android:gravity="center"
+            android:text="@string/log_in"/>
 
     </LinearLayout>
 

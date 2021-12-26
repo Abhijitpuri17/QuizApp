@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">QuizApp</string>
+    <string name="sign_up"><u>SIGN UP</u></string>
+    <string name="log_in"><u>Log in</u></string>
 </resources>
