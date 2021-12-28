@@ -67,6 +67,14 @@ class SignUpActivity : BaseActivity()
     }
 
 
+    fun dataSaveSuccess()
+    {
+        hideProgressDialog()
+        val intent = Intent(this, EmailVerificationActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     private fun signUpUser()
     {
 
@@ -115,11 +123,10 @@ class SignUpActivity : BaseActivity()
                                      * if email sent successfully show verification email sent dialog
                                       */
 
-                                    val intent = Intent(this, EmailVerificationActivity::class.java)
-                                    startActivity(intent)
-                                    finish()
+                                    val userInfo = User(mBinding.etName.text.toString(), email, "", user.uid)
 
-                                    FirebaseAuth.getInstance().signOut()
+                                    FireStoreClass().saveUserInfo(userInfo, this)
+
                                 }
                                 else {
 
@@ -127,6 +134,8 @@ class SignUpActivity : BaseActivity()
                                      * if user entered invalid email
                                      */
                                     FirebaseAuth.getInstance().signOut()
+
+                                    hideProgressDialog()
 
                                     Toast.makeText(
                                         this, "Please enter an valid email id",
