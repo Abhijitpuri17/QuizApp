@@ -1,5 +1,6 @@
 package com.example.quizapp
 
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,39 +8,44 @@ import android.text.TextUtils
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.quizapp.databinding.ActivitySignUpBinding
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import soup.neumorphism.NeumorphButton
 
-class SignUpActivity : AppCompatActivity()
+class SignUpActivity : BaseActivity()
 
 {
-
 
     private lateinit var etName : EditText
     private lateinit var etEmail : EditText
     private lateinit var etPassword: EditText
 
-    override fun onCreate(savedInstanceState: Bundle?)
+    private lateinit var mBinding : ActivitySignUpBinding
 
+    override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_sign_up)
 
-        val goToLoginButton = findViewById<TextView>(R.id.btn_go_to_login)
+        mBinding = ActivitySignUpBinding.inflate(layoutInflater)
 
-        etName = findViewById(R.id.et_name)
+        setContentView(mBinding.root)
 
-        etEmail = findViewById(R.id.et_email)
+        val goToLoginButton = mBinding.btnGoToLogin //findViewById<TextView>(R.id.btn_go_to_login)
 
-        etPassword = findViewById(R.id.et_password)
+        etName =  mBinding.etName
+
+        etEmail =  mBinding.etEmail
+
+        etPassword = mBinding.etPassword
 
 
         goToLoginButton.setOnClickListener {
             finish()
         }
 
-        val signUpButton = findViewById<NeumorphButton>(R.id.nbtn_login)
+        val signUpButton =  mBinding.nbtnLogin
 
         signUpButton.setOnClickListener {
             signUpUser()
@@ -72,6 +78,15 @@ class SignUpActivity : AppCompatActivity()
          */
         if (validateEntries(name, email, password))
         {
+
+            /**
+             * show loading dialog to user sign up task is being performed in background
+             */
+            showProgressDialog()
+
+            /**
+             * create user account using firebase
+             */
             FirebaseAuth.getInstance().
                 createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
@@ -87,19 +102,24 @@ class SignUpActivity : AppCompatActivity()
                         user.sendEmailVerification()
                             .addOnCompleteListener {
 
+                                /**
+                                 * hide loading dialog from screen
+                                 */
+                                hideProgressDialog()
+
                                 /** if email is sent successfully
                                  */
                                 if (it.isSuccessful)
                                 {
-                                    Toast.makeText(
-                                        this, "Verification email has been sent to your registered email",
-                                        Toast.LENGTH_LONG).show()
+                                    /**
+                                     * if email sent successfully show verification email sent dialog
+                                      */
 
-                                    FirebaseAuth.getInstance().signOut()
-
-                                    val intent = Intent(this, LogInActivity::class.java)
+                                    val intent = Intent(this, EmailVerificationActivity::class.java)
                                     startActivity(intent)
                                     finish()
+
+                                    FirebaseAuth.getInstance().signOut()
                                 }
                                 else {
 
@@ -117,6 +137,12 @@ class SignUpActivity : AppCompatActivity()
                             /** if some error occurs while sending email
                              */
                             .addOnFailureListener {
+
+                                /**
+                                 * hide loading dialog from screen
+                                 */
+                                hideProgressDialog()
+
                                 Toast.makeText(
                                     this, it.localizedMessage,
                                     Toast.LENGTH_LONG).show()
@@ -130,6 +156,11 @@ class SignUpActivity : AppCompatActivity()
                  * if some error occurs while creating account
                  */
                 .addOnFailureListener {
+
+                    /**
+                     * hide loading dialog from screen
+                     */
+                    hideProgressDialog()
 
                     Toast.makeText(
                         this, it.localizedMessage,

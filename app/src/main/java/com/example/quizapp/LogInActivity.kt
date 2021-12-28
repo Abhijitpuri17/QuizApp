@@ -7,31 +7,37 @@ import android.text.TextUtils
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.quizapp.databinding.ActivityLogInBinding
 import com.google.firebase.auth.FirebaseAuth
 import soup.neumorphism.NeumorphButton
 
-class LogInActivity : AppCompatActivity() {
+class LogInActivity : BaseActivity() {
 
 
     private lateinit var etEmail : EditText
     private lateinit var etPassword: EditText
 
+    private lateinit var mBinding: ActivityLogInBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_log_in)
 
-        val goToSignUpButton = findViewById<TextView>(R.id.btn_go_to_signup)
 
+        mBinding = ActivityLogInBinding.inflate(layoutInflater)
+
+        setContentView(mBinding.root)
+
+        val goToSignUpButton = mBinding.btnGoToSignup
         // if user doesn't have an account. Go to sign up page
         goToSignUpButton.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
 
-        etEmail = findViewById(R.id.et_email)
-        etPassword = findViewById(R.id.et_password)
+        etEmail =  mBinding.etEmail
+        etPassword = mBinding.etPassword
 
-        val loginButton = findViewById<NeumorphButton>(R.id.nbtn_login)
+        val loginButton = mBinding.nbtnLogin
 
         /**
          * if user clicks on login button
@@ -41,6 +47,23 @@ class LogInActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onStart() {
+        super.onStart()
+
+        /**
+         * if user is already logged in send him/her to main acctivity
+         */
+        val user = FirebaseAuth.getInstance().currentUser
+
+        if (user != null && user.isEmailVerified)
+        {
+            logInSuccess()
+        }
+
+
+    }
+
 
     /**
      * checks if all the entries are filled or not
@@ -55,6 +78,13 @@ class LogInActivity : AppCompatActivity() {
     }
 
 
+    private fun logInSuccess()
+    {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     private fun loginUser()
     {
         val email = etEmail.text.toString()
@@ -67,8 +97,19 @@ class LogInActivity : AppCompatActivity() {
         if (validateEntries(email, password))
         {
 
+            /**
+             * show loading dialog while logging in user
+             */
+            showProgressDialog()
+
+
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).
                 addOnCompleteListener {
+
+                    /**
+                     * hide loading dialog from screen
+                     */
+                    hideProgressDialog()
 
                     /**
                      * if login is successful
@@ -88,9 +129,8 @@ class LogInActivity : AppCompatActivity() {
                             /**
                              * if email is verified then send user to main activity
                              */
-                            val intent = Intent(this, MainActivity::class.java)
-                            startActivity(intent)
-                            finish()
+                            logInSuccess()
+
                         }
                         /**
                          * if email is not verified
@@ -109,6 +149,11 @@ class LogInActivity : AppCompatActivity() {
                  * if some error occurs while logging in
                  */
                 .addOnFailureListener {
+
+                    /**
+                     * hide loading dialog from screen
+                     */
+                    hideProgressDialog()
 
                     Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()
                  }

@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/drawable/ic_vector_email_sent.xml" value="0.13177083333333334" />
         <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/drawable/no_background.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/layout/activity_email_verification.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/layout/activity_log_in.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/layout/activity_main.xml" value="0.13360507246376813" />
         <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/layout/activity_sign_up.xml" value="0.23645833333333333" />
+        <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/layout/email_verification_dialog.xml" value="0.23645833333333333" />
+        <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/layout/loading_dialog_layout.xml" value="0.264" />
       </map>
     </option>
   </component>
