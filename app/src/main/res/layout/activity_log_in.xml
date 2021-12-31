@@ -7,18 +7,14 @@
     tools:context=".LogInActivity"
     android:background="@color/light_background" >
 
-    <com.google.android.material.textview.MaterialTextView
+    <ImageView
         android:id="@+id/mtv_label_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/ubuntu_bold"
         android:layout_marginTop="16dp"
-        android:text="Log In"
-        android:textColor="@color/black"
-        android:textSize="48sp"
-        android:textStyle="bold" />
+        android:src="@drawable/logo" />
 
 
     <soup.neumorphism.NeumorphCardView
@@ -33,18 +29,34 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp">
 
-        <EditText
-            android:id="@+id/et_email"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="textEmailAddress"
-            android:hint="email"
-            android:textColor="@color/black"
-            android:textColorHint="@android:color/tertiary_text_light"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:background="@drawable/no_background"
-            />
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/email"
+                android:layout_gravity="center"
+                android:paddingStart="20dp"
+                />
+
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/no_background"
+                android:hint="Email"
+                android:fontFamily="@font/sofia_pro_medium"
+                android:inputType="textEmailAddress"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/orange"
+                android:textColorHint="@color/grey" />
+
+        </LinearLayout>
 
     </soup.neumorphism.NeumorphCardView>
 
@@ -61,18 +73,43 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp">
 
-        <EditText
-            android:id="@+id/et_password"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="textPassword"
-            android:hint="password"
-            android:textColor="@color/black"
-            android:textColorHint="@android:color/tertiary_text_light"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:background="@drawable/no_background"
-            />
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/lock"
+                android:layout_gravity="center"
+                android:paddingStart="20dp"
+                />
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:inputType="textPassword"
+                android:hint="Password"
+                android:fontFamily="@font/sofia_pro_medium"
+                android:textColor="@color/orange_light"
+                android:textColorHint="@color/grey"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="@drawable/no_background"
+                />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/eye_off"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
+                />
+
+        </LinearLayout>
 
     </soup.neumorphism.NeumorphCardView>
 

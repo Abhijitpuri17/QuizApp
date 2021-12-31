@@ -73,6 +73,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="48dp"
         app:neumorph_shapeType="flat"
+        android:textColor="@color/black"
         android:backgroundTint="@android:color/holo_orange_light"
         />
 
