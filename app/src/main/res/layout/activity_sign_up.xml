@@ -8,7 +8,7 @@
     android:background="@color/light_background" >
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/mtv_label_login"
+        android:id="@+id/iv_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -25,7 +25,7 @@
         style="@style/Widget.Neumorph.CardView"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_below="@id/mtv_label_login"
+        android:layout_below="@id/iv_logo"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"

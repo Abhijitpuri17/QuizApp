@@ -61,9 +61,7 @@ class LogInActivity : BaseActivity() {
             logInSuccess()
         }
 
-
     }
-
 
     /**
      * checks if all the entries are filled or not
