@@ -34,7 +34,7 @@ class SignUpActivity : BaseActivity()
 
         val goToLoginButton = mBinding.btnGoToLogin //findViewById<TextView>(R.id.btn_go_to_login)
 
-        etName =  mBinding.etName
+        etName =  mBinding.etUsername
 
         etEmail =  mBinding.etEmail
 
@@ -45,7 +45,7 @@ class SignUpActivity : BaseActivity()
             finish()
         }
 
-        val signUpButton =  mBinding.nbtnLogin
+        val signUpButton =  mBinding.nbtnSignup
 
         signUpButton.setOnClickListener {
             signUpUser()
@@ -123,7 +123,7 @@ class SignUpActivity : BaseActivity()
                                      * if email sent successfully show verification email sent dialog
                                       */
 
-                                    val userInfo = User(mBinding.etName.text.toString(), email, "", user.uid)
+                                    val userInfo = User(mBinding.etUsername.text.toString(), email, "", user.uid)
 
                                     FireStoreClass().saveUserInfo(userInfo, this)
 

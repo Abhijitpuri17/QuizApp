@@ -25,6 +25,7 @@
         android:layout_marginStart="30dp"
         android:fontFamily="@font/ubuntu_bold"
         android:text="Log In"
+        android:textColor="@color/grey"
         android:textSize="36sp" />
 
     <TextView
@@ -37,6 +38,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/ubuntu_titling_bold"
         android:text="Email"
+        android:textColor="@color/grey"
         android:textSize="28sp" />
 
 
@@ -93,6 +95,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/ubuntu_titling_bold"
+        android:textColor="@color/grey"
         android:text="Password"
         android:textSize="28sp" />
 
@@ -189,9 +192,6 @@
 
 
         </LinearLayout>
-
-
-
 
     </soup.neumorphism.NeumorphCardView>
 
