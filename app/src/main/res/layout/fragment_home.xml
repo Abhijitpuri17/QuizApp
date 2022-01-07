@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".views.fragments.HomeFragment">
 
     <ImageView
         android:id="@+id/iv_logo_home"

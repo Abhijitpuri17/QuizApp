@@ -1,12 +1,11 @@
 package com.example.quizapp.adapters
 
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.quizapp.QuizCategory
+import com.example.quizapp.models.QuizCategory
 import com.example.quizapp.databinding.LayoutQuizCategoryItemBinding
-import com.example.quizapp.ui.home.HomeFragment
+import com.example.quizapp.views.fragments.HomeFragment
 
 class QuizCategoryAdapter(val activity: HomeFragment): RecyclerView.Adapter<QuizCategoryAdapter.ViewHolder>()
 {
@@ -39,6 +38,11 @@ class QuizCategoryAdapter(val activity: HomeFragment): RecyclerView.Adapter<Quiz
         Glide.with(activity.requireContext()).
         load(imgurl).centerCrop().
             into(holder.ivCategoryImage)
+
+
+        holder.itemView.setOnClickListener {
+            activity.goToQuiz(quizCategoriesList[position])
+        }
 
     }
 

@@ -1,8 +1,8 @@
-package com.example.quizapp
+package com.example.quizapp.views.activities
 
 import android.app.Dialog
-import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import com.example.quizapp.R
 
 /**
  * Add the functions which we will use multiple times in the app

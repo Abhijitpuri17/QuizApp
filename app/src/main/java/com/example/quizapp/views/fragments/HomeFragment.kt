@@ -1,14 +1,21 @@
-package com.example.quizapp.ui.home
+package com.example.quizapp.views.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.quizapp.QuizCategory
+import com.example.quizapp.R
+import com.example.quizapp.models.QuizCategory
 import com.example.quizapp.adapters.QuizCategoryAdapter
+import com.example.quizapp.databinding.ActivityHomeBinding
+import com.example.quizapp.databinding.ActivityMainBinding
 import com.example.quizapp.databinding.FragmentHomeBinding
+import com.example.quizapp.utils.Constants
+import com.example.quizapp.views.activities.HomeActivity
 
 class HomeFragment : Fragment() {
 
@@ -19,6 +26,11 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var adapter : QuizCategoryAdapter
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,6 +38,9 @@ class HomeFragment : Fragment() {
     ): View? {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+
+
         val root: View = binding.root
 
         val rvCategories = _binding!!.rvQuizCategories
@@ -55,6 +70,40 @@ class HomeFragment : Fragment() {
 
         adapter.getData(quizList)
     }
+
+    override fun onResume() {
+        super.onResume()
+
+        if (requireActivity() is HomeActivity){
+            (activity as HomeActivity).showBottomNav()
+        }
+
+    }
+
+
+    fun goToQuiz(quizCategory: QuizCategory)
+    {
+
+        val categoryName = quizCategory.categoryName
+        val categoryImageLink = quizCategory.imageLink
+
+        val apiURL = "https://opentdb.com/api.php?amount=10&category=18&type=multiple"
+
+        val bundle = bundleOf(
+            Constants.CATEGORY_NAME to categoryName,
+            Constants.CATEGORY_IMAGE_LINK to categoryImageLink,
+            Constants.API_URL to apiURL
+        )
+
+        findNavController().navigate(R.id.action_navigation_home_to_quizFragment2, bundle)
+
+        if (requireActivity() is HomeActivity){
+            (activity as HomeActivity).hideBottomNav()
+        }
+
+    }
+
+
 
 
     override fun onDestroyView() {

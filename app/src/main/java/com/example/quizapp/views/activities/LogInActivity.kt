@@ -1,15 +1,12 @@
-package com.example.quizapp
+package com.example.quizapp.views.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.example.quizapp.databinding.ActivityLogInBinding
 import com.google.firebase.auth.FirebaseAuth
-import soup.neumorphism.NeumorphButton
 
 class LogInActivity : BaseActivity() {
 

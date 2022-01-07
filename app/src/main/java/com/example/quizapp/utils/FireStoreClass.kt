@@ -1,7 +1,9 @@
-package com.example.quizapp
+package com.example.quizapp.utils
 
 import android.app.Activity
 import android.widget.Toast
+import com.example.quizapp.models.User
+import com.example.quizapp.views.activities.SignUpActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 

@@ -10,10 +10,15 @@
         <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/layout/activity_sign_up.xml" value="0.536" />
         <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/layout/fragment_home.xml" value="0.12916666666666668" />
         <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/layout/loading_dialog_layout.xml" value="0.1598731884057971" />
+        <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/drawable/ic_vector_next.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/drawable/ic_vector_prev.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/drawable/no_background.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/layout/activity_log_in.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/layout/activity_main.xml" value="0.13360507246376813" />
         <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/layout/activity_sign_up.xml" value="0.23645833333333333" />
+        <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/layout/fragment_home.xml" value="0.15670289855072464" />
+        <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/layout/fragment_quiz.xml" value="0.264" />
       </map>
     </option>
   </component>

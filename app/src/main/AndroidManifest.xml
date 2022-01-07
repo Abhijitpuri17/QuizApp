@@ -13,18 +13,18 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.QuizApp">
         <activity
-            android:name=".HomeActivity"
+            android:name=".views.activities.HomeActivity"
             android:exported="false"
             android:label="@string/title_activity_home" />
         <activity
-            android:name=".EmailVerificationActivity"
+            android:name=".views.activities.EmailVerificationActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".views.activities.SignUpActivity"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
-            android:name=".LogInActivity"
+            android:name=".views.activities.LogInActivity"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
             <intent-filter>
@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".views.activities.MainActivity"
             android:exported="false" />
 
         <meta-data
