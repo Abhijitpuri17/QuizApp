@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
@@ -161,6 +162,18 @@ class QuizFragment : BaseFragment() {
 
         currentQuestionNum++
 
+
+        if (currentQuestionNum >= totalQuestion )
+        {
+
+            val bundle = bundleOf(
+                Constants.NUMBER_OF_CORRECT_QUESTIONS to score,
+                Constants.SCORE to score*10
+            )
+
+            findNavController().navigate(R.id.action_quizFragment2_to_resultFragment, bundle)
+
+        }
         shouldMoveToNextQuestion = true
         _binding!!.nbtnSubmit.text = "NEXT QUESTION"
 
@@ -199,9 +212,14 @@ class QuizFragment : BaseFragment() {
             _binding!!.nbtnSubmit.text = "SUBMIT"
 
         } else{
-            Toast.makeText(requireContext(), "Quiz Finished", Toast.LENGTH_SHORT).show()
 
-            requireActivity().onBackPressed()
+                val bundle = bundleOf(
+                    Constants.NUMBER_OF_CORRECT_QUESTIONS to score,
+                    Constants.SCORE to score*10
+                )
+
+                findNavController().navigate(R.id.action_quizFragment2_to_resultFragment, bundle)
+
         }
     }
 
