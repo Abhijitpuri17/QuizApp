@@ -35,8 +35,6 @@ class ResultFragment : Fragment() {
         _binding.mtvScore.text = score.toString()
         _binding.mtvCorrectQuestionsNumber.text = "$totalCorrectQuestion out of 10 Questions"
 
-
-
         _binding.nbtnTryAgain.setOnClickListener {
 
            findNavController().navigate(
