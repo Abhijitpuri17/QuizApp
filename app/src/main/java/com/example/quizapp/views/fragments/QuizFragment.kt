@@ -2,23 +2,24 @@ package com.example.quizapp.views.fragments
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
 import com.example.quizapp.R
-import com.example.quizapp.databinding.ActivityHomeBinding
+import com.example.quizapp.application.FavQuestionApplication
 import com.example.quizapp.databinding.FragmentQuizBinding
 import com.example.quizapp.models.Question
+import com.example.quizapp.models.entities.FavQuestion
 import com.example.quizapp.utils.Constants
-import com.example.quizapp.views.activities.HomeActivity
-import soup.neumorphism.NeumorphButton
+import com.example.quizapp.viewmodels.FavQuestionViewModel
+import com.example.quizapp.viewmodels.FavQuestionsViewModelFactory
 
 class QuizFragment : BaseFragment() {
 
@@ -32,10 +33,22 @@ class QuizFragment : BaseFragment() {
     private lateinit var currQuestion : Question
     private var shouldMoveToNextQuestion = false
 
+    private var isLiked : Boolean = false
+
+    val favQuestionsMap = mutableMapOf<Int, FavQuestion>()
+
+    private val favQuestionsViewModel: FavQuestionViewModel by viewModels {
+        FavQuestionsViewModelFactory((requireActivity().application as FavQuestionApplication).repository)
+    }
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
     }
+
+    private lateinit var categoryName : String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +60,7 @@ class QuizFragment : BaseFragment() {
         _binding = FragmentQuizBinding.inflate(layoutInflater)
 
 
-        val categoryName = arguments?.getString(Constants.CATEGORY_NAME)
+        categoryName = arguments?.getString(Constants.CATEGORY_NAME)!!
         val categoryImageLink = arguments?.getString(Constants.CATEGORY_IMAGE_LINK)
         val apiURL = arguments?.getString(Constants.API_URL)
 
@@ -74,6 +87,51 @@ class QuizFragment : BaseFragment() {
         }
         _binding!!.nbtnOption4.setOnClickListener {
             chooseOption(it)
+        }
+
+        _binding!!.nfbtnLike.setOnClickListener {
+            val que = questionList[currentQuestionNum]
+
+            val queText = que.queText
+            var ansText = ""
+
+            when(que.correctOption){
+                1 ->{
+                    ansText = que.option1
+                }
+
+                2 -> {
+                    ansText = que.option2
+                }
+
+                3 -> {
+                    ansText = que.option3
+                }
+
+                4 -> {
+                    ansText = que.option4
+                }
+
+            }
+
+            val favQue = FavQuestion(queText, ansText, categoryName)
+
+            if (!isLiked) {
+                isLiked = !isLiked
+
+                _binding!!.nfbtnLike.setImageResource(R.drawable.ic_vector_favourite_red)
+
+                favQuestionsMap[currentQuestionNum] = favQue
+                // favQuestionsViewModel.insert(favQue)
+
+            } else {
+                isLiked = !isLiked
+                //favQuestionsViewModel.delete(favQue)
+
+                favQuestionsMap.remove(currentQuestionNum)
+
+                _binding!!.nfbtnLike.setImageResource(R.drawable.ic_vector_favourite_hollow)
+            }
         }
 
       return _binding!!.root
@@ -160,8 +218,8 @@ class QuizFragment : BaseFragment() {
 
         if (chosenOption == currQuestion.correctOption) score++
 
-        currentQuestionNum++
 
+        currentQuestionNum++
 
         if (currentQuestionNum >= totalQuestion )
         {
@@ -170,6 +228,10 @@ class QuizFragment : BaseFragment() {
                 Constants.NUMBER_OF_CORRECT_QUESTIONS to score,
                 Constants.SCORE to score*10
             )
+
+            for (que in favQuestionsMap) {
+                favQuestionsViewModel.insert(que.value)
+            }
 
             findNavController().navigate(R.id.action_quizFragment2_to_resultFragment, bundle)
 
@@ -183,6 +245,10 @@ class QuizFragment : BaseFragment() {
     {
 
         chosenOption = 0
+
+        isLiked = false
+
+        _binding!!.nfbtnLike.setImageResource(R.drawable.ic_vector_favourite_hollow)
 
         _binding!!.nbtnOption1.setShapeType(0)
         _binding!!.nbtnOption2.setShapeType(0)
@@ -273,14 +339,6 @@ class QuizFragment : BaseFragment() {
 
         queue.add(jsonObj)
     }
-
-
-
-
-
-
-
-
 
 
 }

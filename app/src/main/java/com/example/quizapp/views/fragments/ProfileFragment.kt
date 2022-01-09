@@ -25,11 +25,13 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
+        _binding!!.civProfileImage.setOnClickListener{
+
+        }
+
 
         return root
     }

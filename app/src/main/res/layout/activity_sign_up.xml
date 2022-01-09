@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,302 +7,313 @@
     tools:context=".views.activities.LogInActivity"
     android:background="@color/light_background" >
 
-    <ImageView
-        android:id="@+id/iv_logo"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/tv_signup_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/iv_logo"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="30dp"
-        android:fontFamily="@font/ubuntu_bold"
-        android:text="Sign-up"
-        android:textColor="@color/grey"
-        android:textSize="36sp" />
-
-    <soup.neumorphism.NeumorphCardView
-        android:id="@+id/iv_profile"
-        style="@style/Widget.Neumorph.CardView"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_below="@id/tv_signup_label"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="-10dp"
-        android:layout_marginEnd="16dp"
-        app:neumorph_shapeType="flat">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/nbtn_profile_pic"
+            android:id="@+id/iv_logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/tv_signup_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_logo"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/ubuntu_bold"
+            android:text="Sign-up"
+            android:textColor="@color/grey"
+            android:textSize="36sp" />
+
+<!--        <soup.neumorphism.NeumorphCardView-->
+<!--            android:id="@+id/iv_profile"-->
+<!--            style="@style/Widget.Neumorph.CardView"-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="120dp"-->
+<!--            android:layout_below="@id/tv_signup_label"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="-10dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            app:neumorph_shapeType="flat">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/nbtn_profile_pic"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:layout_marginBottom="15dp"-->
+<!--                android:src="@drawable/stock_image">-->
+
+<!--            </ImageView>-->
+
+
+<!--        </soup.neumorphism.NeumorphCardView>-->
+
+        <TextView
+            android:id="@+id/tv_username_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_signup_label"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/ubuntu_titling_bold"
+            android:text="Username"
+            android:textColor="@color/grey"
+            android:textSize="28sp" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/ncv_username"
+            style="@style/Widget.Neumorph.CardView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:src="@drawable/stock_image">
-
-        </ImageView>
-
-
-    </soup.neumorphism.NeumorphCardView>
-
-    <TextView
-        android:id="@+id/tv_username_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_signup_label"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="100dp"
-        android:fontFamily="@font/ubuntu_titling_bold"
-        android:text="Username"
-        android:textColor="@color/grey"
-        android:textSize="28sp" />
-
-    <soup.neumorphism.NeumorphCardView
-        android:id="@+id/ncv_username"
-        style="@style/Widget.Neumorph.CardView"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_below="@id/tv_username_label"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:neumorph_shapeType="pressed">
+            android:layout_height="80dp"
+            android:layout_below="@id/tv_username_label"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:neumorph_shapeType="pressed">
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingStart="20dp"
-                android:src="@drawable/user" />
-
-
-            <EditText
-                android:id="@+id/et_username"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/no_background"
-                android:fontFamily="@font/sofia_pro_medium"
-                android:hint="Username"
-                android:inputType="textPersonName"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:textColor="@color/orange"
-                android:textColorHint="@color/grey"
-                android:textSize="20sp" />
+                android:orientation="horizontal">
 
-        </LinearLayout>
-
-    </soup.neumorphism.NeumorphCardView>
-
-    <TextView
-        android:id="@+id/tv_email_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ncv_username"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="0dp"
-        android:fontFamily="@font/ubuntu_titling_bold"
-        android:text="Email"
-        android:textColor="@color/grey"
-        android:textSize="28sp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingStart="20dp"
+                    android:src="@drawable/user" />
 
 
-    <soup.neumorphism.NeumorphCardView
-        android:id="@+id/ncv_email"
-        style="@style/Widget.Neumorph.CardView"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_below="@id/tv_email_label"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="16dp"
-        app:neumorph_shapeType="pressed">
+                <EditText
+                    android:id="@+id/et_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/no_background"
+                    android:fontFamily="@font/sofia_pro_medium"
+                    android:hint="Username"
+                    android:inputType="textPersonName"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/orange"
+                    android:textColorHint="@color/grey"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <TextView
+            android:id="@+id/tv_email_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ncv_username"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/ubuntu_titling_bold"
+            android:text="Email"
+            android:textColor="@color/grey"
+            android:textSize="28sp" />
 
 
-        <LinearLayout
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/ncv_email"
+            style="@style/Widget.Neumorph.CardView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingStart="20dp"
-                android:src="@drawable/email" />
+            android:layout_height="80dp"
+            android:layout_below="@id/tv_email_label"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="16dp"
+            app:neumorph_shapeType="pressed">
 
 
-            <EditText
-                android:id="@+id/et_email"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/no_background"
-                android:fontFamily="@font/sofia_pro_medium"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:textColor="@color/orange"
-                android:textColorHint="@color/grey"
-                android:textSize="20sp" />
+                android:orientation="horizontal">
 
-        </LinearLayout>
-
-    </soup.neumorphism.NeumorphCardView>
-
-    <TextView
-        android:id="@+id/tv_password_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ncv_email"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="0dp"
-        android:fontFamily="@font/ubuntu_titling_bold"
-        android:text="Password"
-        android:textColor="@color/grey"
-        android:textSize="28sp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingStart="20dp"
+                    android:src="@drawable/email" />
 
 
-    <soup.neumorphism.NeumorphCardView
-        android:id="@+id/ncv_password"
-        style="@style/Widget.Neumorph.CardView"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_below="@id/tv_password_label"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="16dp"
-        app:neumorph_shapeType="pressed">
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/no_background"
+                    android:fontFamily="@font/sofia_pro_medium"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/orange"
+                    android:textColorHint="@color/grey"
+                    android:textSize="20sp" />
 
-        <LinearLayout
+            </LinearLayout>
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <TextView
+            android:id="@+id/tv_password_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ncv_email"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/ubuntu_titling_bold"
+            android:text="Password"
+            android:textColor="@color/grey"
+            android:textSize="28sp" />
+
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/ncv_password"
+            style="@style/Widget.Neumorph.CardView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="80dp"
+            android:layout_below="@id/tv_password_label"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="16dp"
+            app:neumorph_shapeType="pressed">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingStart="20dp"
-                android:src="@drawable/lock" />
-
-            <EditText
-                android:id="@+id/et_password"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/no_background"
-                android:fontFamily="@font/sofia_pro_medium"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:textColor="@color/orange_light"
-                android:textColorHint="@color/grey" />
+                android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="20dp"
-                android:src="@drawable/eye_off" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingStart="20dp"
+                    android:src="@drawable/lock" />
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/no_background"
+                    android:fontFamily="@font/sofia_pro_medium"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/orange_light"
+                    android:textColorHint="@color/grey" />
 
-    </soup.neumorphism.NeumorphCardView>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/eye_off" />
 
-    <soup.neumorphism.NeumorphCardView
-        android:id="@+id/nbtn_signup"
-        style="@style/Widget.Neumorph.CardView"
-        android:layout_width="match_parent"
-        android:layout_height="78dp"
-        android:layout_below="@id/ncv_password"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="48dp"
-        app:neumorph_shapeType="flat">
+            </LinearLayout>
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/nbtn_signup"
+            style="@style/Widget.Neumorph.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:layout_below="@id/ncv_password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="48dp"
+            app:neumorph_shapeType="flat">
 
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginStart="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Up"
+                    android:textSize="30sp"
+                    android:padding="4dp"
+                    android:textColor="@color/grey"
+                    android:fontFamily="@font/ubuntu"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_vector_arrow"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"/>
+
+
+
+            </LinearLayout>
+
+        </soup.neumorphism.NeumorphCardView>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/nbtn_signup"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sign Up"
-                android:textSize="30sp"
-                android:padding="4dp"
+                android:layout_height="match_parent"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:textColor="@color/grey"
-                android:fontFamily="@font/ubuntu"
-                android:layout_marginStart="78dp"
-                android:layout_gravity="center"/>
+                android:text="Already a user?"/>
 
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="32dp"
-                android:src="@drawable/ic_vector_arrow"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="12dp"/>
+            <TextView
+                android:id="@+id/btn_go_to_login"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:textColor="@color/grey"
+                android:padding="8dp"
+                android:layout_gravity="center"
+                android:gravity="center"
 
-
+                android:text="@string/log_in"/>
 
         </LinearLayout>
 
-    </soup.neumorphism.NeumorphCardView>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@id/nbtn_signup"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-10dp"
-        >
+    </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textSize="16sp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textColor="@color/grey"
-            android:text="Already a user?"/>
 
-        <TextView
-            android:id="@+id/btn_go_to_login"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:textColor="@color/grey"
-            android:padding="8dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-
-            android:text="@string/log_in"/>
-
-    </LinearLayout>
 
 
 
@@ -358,4 +369,4 @@
 <!--    </LinearLayout>-->
 
 
-</RelativeLayout>
+</ScrollView>
