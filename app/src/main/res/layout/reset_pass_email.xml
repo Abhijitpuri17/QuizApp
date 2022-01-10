@@ -17,7 +17,7 @@
         android:src="@drawable/logo" />
 
     <TextView
-        android:id="@+id/tv_login_label"
+        android:id="@+id/tv_reset_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/iv_logo"
@@ -32,7 +32,7 @@
         android:id="@+id/tv_email_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_login_label"
+        android:layout_below="@id/tv_reset_pass"
         android:layout_alignParentStart="true"
         android:layout_marginStart="40dp"
         android:layout_marginTop="50dp"

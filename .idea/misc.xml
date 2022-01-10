@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/drawable/ic_vector_arrow.xml" value="0.1453125" />
+        <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/drawable/ic_vector_delete.xml" value="0.1453125" />
+        <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/drawable/ic_vector_email_sent.xml" value="0.1453125" />
+        <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/drawable/ic_vector_favourite_hollow.xml" value="0.1453125" />
+        <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/drawable/ic_vector_favourite_red.xml" value="0.1453125" />
+        <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/drawable/ic_vector_next.xml" value="0.1453125" />
+        <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/drawable/ic_vector_profile.xml" value="0.1453125" />
         <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/font/ubuntu_bold.xml" value="0.2869791666666667" />
         <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/layout-v28/activity_email_verification.xml" value="0.1598731884057971" />
         <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/layout/activity_email_verification.xml" value="0.1598731884057971" />
@@ -11,9 +18,11 @@
         <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
         <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/layout/fragment_favourites.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/layout/fragment_home.xml" value="0.12916666666666668" />
+        <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/layout/fragment_quiz.xml" value="0.25677083333333334" />
         <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/layout/loading_dialog_layout.xml" value="0.1598731884057971" />
         <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/layout/reset_pass.xml" value="0.2" />
         <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/layout/reset_pass_confirmation.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/DAULATRA0/AndroidStudioProjects/QuizApp/app/src/main/res/layout/reset_pass_email.xml" value="0.25677083333333334" />
         <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/drawable/ic_vector_next.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/drawable/ic_vector_prev.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/abhij/AndroidStudioProjects/QuizApp/app/src/main/res/drawable/no_background.xml" value="0.2526041666666667" />

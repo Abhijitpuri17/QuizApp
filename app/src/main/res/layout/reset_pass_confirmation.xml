@@ -17,7 +17,7 @@
         android:src="@drawable/logo" />
 
     <TextView
-        android:id="@+id/tv_login_label"
+        android:id="@+id/tv_reset_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/iv_logo"
@@ -27,6 +27,186 @@
         android:text="Reset Password"
         android:textColor="@color/grey"
         android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/tv_new_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_reset_pass"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/ubuntu_titling_bold"
+        android:text="New Password"
+        android:textColor="@color/grey"
+        android:textSize="28sp" />
+
+    <soup.neumorphism.NeumorphCardView
+        android:id="@+id/ncv_new_password"
+        style="@style/Widget.Neumorph.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@id/tv_new_pass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="16dp"
+        app:neumorph_shapeType="pressed">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingStart="20dp"
+                android:src="@drawable/lock" />
+
+            <EditText
+                android:id="@+id/et_new_password"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/no_background"
+                android:fontFamily="@font/sofia_pro_medium"
+                android:hint="Enter new password"
+                android:inputType="textPassword"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/orange_light"
+                android:textColorHint="@color/grey" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/eye_off" />
+
+        </LinearLayout>
+
+    </soup.neumorphism.NeumorphCardView>
+
+    <TextView
+        android:id="@+id/tv_confirm_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ncv_new_password"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="0dp"
+        android:fontFamily="@font/ubuntu_titling_bold"
+        android:text="Confirm Password"
+        android:textColor="@color/grey"
+        android:textSize="28sp" />
+
+    <soup.neumorphism.NeumorphCardView
+        android:id="@+id/ncv_confirm_password"
+        style="@style/Widget.Neumorph.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@id/tv_confirm_pass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="16dp"
+        app:neumorph_shapeType="pressed">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingStart="20dp"
+                android:src="@drawable/lock" />
+
+            <EditText
+                android:id="@+id/et_confirm_password"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/no_background"
+                android:fontFamily="@font/sofia_pro_medium"
+                android:hint="Confirm password"
+                android:inputType="textPassword"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/orange_light"
+                android:textColorHint="@color/grey" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/eye_off" />
+
+        </LinearLayout>
+
+    </soup.neumorphism.NeumorphCardView>
+
+    <soup.neumorphism.NeumorphCardView
+        android:id="@+id/nbtn_submit"
+        style="@style/Widget.Neumorph.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:layout_below="@id/ncv_confirm_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="48dp"
+        app:neumorph_shapeType="flat">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:textSize="30sp"
+                android:padding="4dp"
+                android:textColor="@color/grey"
+                android:fontFamily="@font/ubuntu"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_vector_arrow"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="12dp"/>
+
+
+
+        </LinearLayout>
+
+    </soup.neumorphism.NeumorphCardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back to Sign In"
+        android:textSize="16sp"
+        android:textColor="@color/grey"
+        android:layout_below="@id/nbtn_submit"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        />
+
 
 
 
