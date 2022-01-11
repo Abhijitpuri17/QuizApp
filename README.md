@@ -1,6 +1,7 @@
 # **Quiz App**
 
 **Application Description**:
+ 
  This is a Quiz Application where students can attempt questions from different categories. They can add the questions they like
  to their favourites so that they can review them later. Open Trivia API is used to for getting questions for quiz of different
  categories. We will be adding features like leaderboard to compare progress with othes in upcoming days.
