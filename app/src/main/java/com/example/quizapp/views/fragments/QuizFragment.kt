@@ -41,8 +41,6 @@ class QuizFragment : BaseFragment() {
         FavQuestionsViewModelFactory((requireActivity().application as FavQuestionApplication).repository)
     }
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -134,10 +132,44 @@ class QuizFragment : BaseFragment() {
             }
         }
 
+        _binding!!.nfbtnPrev.setOnClickListener {
+            prevQuestion()
+        }
+
+        _binding!!.nfbtnNext.setOnClickListener {
+            nextQuestion()
+        }
+
+
       return _binding!!.root
     }
 
+    private fun prevQuestion(){
+        if(currentQuestionNum != 0){
+            currentQuestionNum--
+            displayNextQuestion()
+        }
+    }
 
+    private fun nextQuestion(){
+        if(currentQuestionNum != questionList.size-1){
+            currentQuestionNum++
+            displayNextQuestion()
+        } else {
+            val bundle = bundleOf(
+                Constants.NUMBER_OF_CORRECT_QUESTIONS to score,
+                Constants.SCORE to score*10
+            )
+
+            for (que in favQuestionsMap) {
+                favQuestionsViewModel.insert(que.value)
+            }
+
+            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_quizFragment2_to_resultFragment, bundle)
+
+        }
+    }
 
     private fun chooseOption(v: View)
     {
@@ -221,8 +253,7 @@ class QuizFragment : BaseFragment() {
 
         currentQuestionNum++
 
-        if (currentQuestionNum >= totalQuestion )
-        {
+        if (currentQuestionNum >= totalQuestion ) {
 
             val bundle = bundleOf(
                 Constants.NUMBER_OF_CORRECT_QUESTIONS to score,
@@ -238,11 +269,9 @@ class QuizFragment : BaseFragment() {
         }
         shouldMoveToNextQuestion = true
         _binding!!.nbtnSubmit.text = "NEXT QUESTION"
-
     }
 
-    private fun displayNextQuestion()
-    {
+    private fun displayNextQuestion() {
 
         chosenOption = 0
 
@@ -278,14 +307,12 @@ class QuizFragment : BaseFragment() {
             _binding!!.nbtnSubmit.text = "SUBMIT"
 
         } else{
-
                 val bundle = bundleOf(
                     Constants.NUMBER_OF_CORRECT_QUESTIONS to score,
                     Constants.SCORE to score*10
                 )
 
                 findNavController().navigate(R.id.action_quizFragment2_to_resultFragment, bundle)
-
         }
     }
 

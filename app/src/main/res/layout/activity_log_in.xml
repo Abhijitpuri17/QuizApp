@@ -106,20 +106,6 @@
         android:textColor="@color/grey"
         android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/reset_pass"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="bottom"
-        android:text="@string/forgot_pass"
-        android:fontFamily="@font/sofia_pro_medium"
-        android:textSize="14sp"
-        android:textColor="@color/grey"
-        android:alpha="0.5"
-        />
-
     </LinearLayout>
 
     <soup.neumorphism.NeumorphCardView
